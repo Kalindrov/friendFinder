@@ -10,7 +10,7 @@ $('#submit-btn').on('click',function(event) {
     }).done(function(data) {
         console.log(data);
     }).fail(function() {
-        console.log("you fucked up");
+        console.log("my hair is now on fire");
     }).always(function(data) {
         console.log("some data");
     });
