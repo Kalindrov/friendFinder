@@ -39,13 +39,11 @@
     margin-bottom: 50px;
     width: 600px;
   }
-  .btn {
+  #submit {
     background: blueviolet;
+    color: white;
     margin-left: 200px;
     width: 600px;
-  }
-  .btn a:hover {
-    background: white;
   }
   .form-check-label {
     font-size: 14px;
@@ -61,15 +59,15 @@
 <body>
     <section>Answer the Survey Below</section>
     <hr>
-    <form class="friend-form" id="friends" method="post" action="/api/friends">
+    <form class="friend-form" id="form-data" method="post" action="/api/friends">
     <div class="form-group row">
         <div class="name col-10">
           <label for="example-text-input" class="col-form-label">Name</label>
-          <input class="form-control" type="text" placeholder="type in your name fool" id="example-text-input" required>
+          <input class="form-control" type="text" placeholder="type in your name fool" id="username" required>
         </div>
         <div class="url col-10">
         <label for="example-url-input" class="col-form-label">URL</label>
-        <input class="form-control" type="text" placeholder="show me your damn photo" id="example-url-input" required>
+        <input class="form-control" type="text" placeholder="show me your damn photo" id="photo" required>
       </div>
     </div>
     <hr>
@@ -84,7 +82,7 @@
           <option value="5">Strongly Disagree</option>
         </select>
       </div>
-    <!-- <br>
+    <br>
     <div class="form-group question">
         <label for="exampleSelect1">Would you enjoy creating pottery by hand?</label>
         <select class="form-control" id="quest2" required>
@@ -107,9 +105,9 @@
           <option value="4">Disgree</option>
           <option value="5">Strongly Disagree</option>
         </select>
-      </div> -->
-    <!-- <br> -->
-    <!-- <div class="form-group question">
+      </div>
+      <br>
+    <div class="form-group question">
         <label for="exampleSelect1">Are you a team player?</label>
         <select class="form-control" id="quest4">
           <option>Pick a Choice</option>
@@ -192,12 +190,9 @@
           <option value="5">Strongly Disagree</option>
         </select>
       </div>
-    <br> -->
-    <input type="submit" value="Find a Friend">
+    <br>
+    <button id="submit">Find a Friend</button>
   </form>
-    <!-- <div class="text-center">
-        <a href="/friend"><button type="button" id="submit" class="btn btn-lg btn-primary">FIND YOUR FRIEND</button></a>
-    </div> -->
     <hr>
   </body>
 </html>
