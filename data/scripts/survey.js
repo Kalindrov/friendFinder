@@ -1,16 +1,19 @@
-$('#submit').submit(function(event) {
-    $('#form-data').validate();
+$('#submit-btn').on('click',function(event) {
+    // $('#form-data').validate();
 
     var formData = $('#form-data').serialize();
-    // $.ajax({
-    //     url: '/api/friends',
-    //     type: 'post',
-    //     dataType: 'json',
-    //     data: formData,
-    //     success: function () {
-    //         console.log("does it work?");
-    //     }
-    // });
+    $.ajax({
+        url: '/api/friends',
+        type: 'POST',
+        dataType: 'json',
+        data: formData
+    }).done(function(data) {
+        console.log(data);
+    }).fail(function() {
+        console.log("you fucked up");
+    }).always(function(data) {
+        console.log("some data");
+    });
 
     // here we are going to push the data from the form submission
     // name, photo url, quest1 thru quest10 should be stored into the friendArray

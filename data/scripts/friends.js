@@ -49,4 +49,4 @@ var friendsArr = [
   }
 ]
 
-module.exports = friendsArr;
+module.exports = {friendsArr:friendsArr};
