@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="/scripts/survey.js" type="text/javascript"></script>
+  <title>Survey Says..Your Friend is...</title>
+</head>
+<style>
+  body {
+    background: black;
+  }
+  hr {
+    background: white;
+  }
+  section {
+    margin-top: 100px;
+    color: blueviolet;
+    margin-left: 200px;
+    width: 600px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .jumbotron {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  .question {
+    color: blueviolet;
+    margin-left: 200px;
+    width: 600px;
+  }
+  .row,.btn {
+    margin-left: 195px;
+    margin-bottom: 50px;
+    width: 600px;
+  }
+  .btn {
+    background: blueviolet;
+    margin-left: 200px;
+    width: 600px;
+  }
+  .btn a:hover {
+    background: white;
+  }
+  .form-check-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .name, .url {
+    color: blueviolet;
+    font-size: 20px;
+    font-weight: 600;
+  }
+</style>
+<body>
+    <section>Answer the Survey Below</section>
+    <hr>
+    <form class="friend-form" id="friends" method="post" action="/api/friends">
+    <div class="form-group row">
+        <div class="name col-10">
+          <label for="example-text-input" class="col-form-label">Name</label>
+          <input class="form-control" type="text" placeholder="type in your name fool" id="example-text-input" required>
+        </div>
+        <div class="url col-10">
+        <label for="example-url-input" class="col-form-label">URL</label>
+        <input class="form-control" type="text" placeholder="show me your damn photo" id="example-url-input" required>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group question">
+        <label for="exampleSelect1">Would you enjoy attending a Comic Con?</label>
+        <select class="form-control" id="quest1" required>
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <!-- <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Would you enjoy creating pottery by hand?</label>
+        <select class="form-control" id="quest2" required>
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you enjoy doing stuff with others as a group?</label>
+        <select class="form-control" id="quest3" required>
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div> -->
+    <!-- <br> -->
+    <!-- <div class="form-group question">
+        <label for="exampleSelect1">Are you a team player?</label>
+        <select class="form-control" id="quest4">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you believe in ghosts?</label>
+        <select class="form-control" id="quest5">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you enjoy watching basketball?</label>
+        <select class="form-control" id="quest6">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you like having pets?</label>
+        <select class="form-control" id="quest7">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Would you consider yourself a ambitious person?</label>
+        <select class="form-control" id="quest8">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you believe in organized religion?</label>
+        <select class="form-control" id="quest9">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br>
+    <div class="form-group question">
+        <label for="exampleSelect1">Do you think the president will do a good job representing the country?</label>
+        <select class="form-control" id="quest10">
+          <option>Pick a Choice</option>
+          <option value="1">Strongly Agree</option>
+          <option value="2">Agree</option>
+          <option value="3">Neutral</option>
+          <option value="4">Disgree</option>
+          <option value="5">Strongly Disagree</option>
+        </select>
+      </div>
+    <br> -->
+    <input type="submit" value="Find a Friend">
+  </form>
+    <!-- <div class="text-center">
+        <a href="/friend"><button type="button" id="submit" class="btn btn-lg btn-primary">FIND YOUR FRIEND</button></a>
+    </div> -->
+    <hr>
+  </body>
+</html>
